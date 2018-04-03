@@ -14,11 +14,11 @@
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:weightSum="3"
-        android:orientation="horizontal"
+        android:layout_height="39dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/prog1"
@@ -26,41 +26,38 @@
             android:layout_height="wrap_content" />
 
 
-
-
         <TextView
+            android:id="@+id/points"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/points" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
-       <RelativeLayout
-           android:id="@+id/seek"
-           android:layout_below="@id/layout"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
-           <SeekBar
-               android:id="@+id/bar"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_alignParentLeft="true"
-               android:layout_alignParentStart="true"
-               android:layout_centerVertical="true"
-               android:max="20">
 
-           </SeekBar>
-       </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/seek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp">
 
+        <SeekBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:max="20">
 
+        </SeekBar>
+    </RelativeLayout>
 
 
     <GridLayout
         android:id="@+id/grid"
-        android:layout_marginTop="75dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/layout">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pointView"
+        android:layout_centerHorizontal="true">
+
         <ImageView
             android:id="@+id/box1"
             android:layout_width="90dp"
@@ -71,8 +68,8 @@
             android:layout_marginLeft="50dp"
             android:layout_marginStart="-10dp"
             android:padding="2dp"
-            android:src="@drawable/berry"
             android:scaleType="centerInside"
+            android:src="@drawable/berry"
 
             />
 
@@ -86,8 +83,8 @@
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp"
             android:padding="2dp"
-            android:src="@drawable/cherry"
             android:scaleType="centerInside"
+            android:src="@drawable/cherry"
 
             />
 
@@ -100,44 +97,38 @@
             android:layout_alignTop="@+id/box1"
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp"
-            android:src="@drawable/pear"
             android:padding="2dp"
+            android:src="@drawable/pear"
 
             />
     </GridLayout>
 
     <RelativeLayout
-        android:layout_marginBottom="50dp"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:id="@+id/pointView"
-        android:layout_above="@id/grid">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
 
         <Button
             android:id="@+id/roll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
+            android:onClick="buttonPressed"
             android:text="ROLL/stop"
-            android:onClick="buttonPressed" />
+            android:textSize="10dp" />
 
 
         <Button
             android:id="@+id/rules"
-            android:onClick="rulesPressed"
-            android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@id/roll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:onClick="rulesPressed"
             android:text="Rules"
-            android:textSize="10dp"
-            android:layout_centerHorizontal="true"
-            />
+            android:textSize="10dp" />
 
 
-
-
-
-
-</RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>
