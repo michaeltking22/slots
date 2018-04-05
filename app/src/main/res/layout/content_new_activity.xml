@@ -8,19 +8,27 @@
     android:layout_centerHorizontal="true"
     android:text="RULES"
     android:textSize="50dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="30dp"
     />
+
     <TextView
+        android:id="@+id/p"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rules"
+        android:layout_centerHorizontal="true"
+        android:text="f"
+        android:layout_width="wrap_content"></TextView>
+    <TextView
+        android:id="@+id/rules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Use seekbar to adjust the speed.
 3 speeds slow, medium and fast.
 Use button to spin and stop the slots.
 You get 3 of a kind gain 50 points.
 Pears are worth 10 points.
-Everything else is worthless.
 GOOD LUCK!"
         android:layout_centerHorizontal="true"
         android:textSize="29dp"

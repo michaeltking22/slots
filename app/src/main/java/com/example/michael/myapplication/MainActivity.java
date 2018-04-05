@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity {
+public class MainActivity extends AppCompatActivity {
 
     int a, b, c;
     Button rules, roll;
@@ -22,9 +22,8 @@ public class MainActivity {
     Handler handler;
     long startTime;
     int speed;
-    EditText prog;
     boolean f;
-    EditText prog1;
+    TextView prog1;
     TextView points;
     Update update;
     int p;
@@ -51,10 +50,84 @@ public class MainActivity {
         c = 0;
         p = 0;
         rules = findViewById(R.id.rules);
+
+        if (savedInstanceState != null) {
+            points.setText(savedInstanceState.getString("POINTS"));
+            prog1.setText(savedInstanceState.getString("TOAST"));
+            a = (savedInstanceState.getInt("1"));
+            b = (savedInstanceState.getInt("2"));
+            c = (savedInstanceState.getInt("3"));
+            p = (savedInstanceState.getInt("4"));
+            switch (a)
+
+            {
+                case 1:
+                    box1.setImageResource(R.drawable.cherry);
+                    break;
+                case 2:
+                    box1.setImageResource(R.drawable.pear);
+                    break;
+                case 3:
+                    box1.setImageResource(R.drawable.berry);
+                    break;
+                case 4:
+                    box1.setImageResource(R.drawable.grape);
+                    break;
+            }
+
+            switch (b)
+
+            {
+                case 1:
+                    box2.setImageResource(R.drawable.cherry);
+                    break;
+                case 2:
+                    box2.setImageResource(R.drawable.pear);
+                    break;
+                case 3:
+                    box2.setImageResource(R.drawable.berry);
+                    break;
+                case 4:
+                    box2.setImageResource(R.drawable.grape);
+                    break;
+            }
+
+            switch (c)
+
+            {
+                case 1:
+                    box3.setImageResource(R.drawable.cherry);
+                    break;
+                case 2:
+                    box3.setImageResource(R.drawable.pear);
+                    break;
+                case 3:
+                    box3.setImageResource(R.drawable.berry);
+                    break;
+                case 4:
+                    box3.setImageResource(R.drawable.grape);
+                    break;
+            }
+        }
     }
+
+        public void onSaveInstanceState (Bundle savedInstanceState) {
+            super.onSaveInstanceState(savedInstanceState);
+            savedInstanceState.putString("POINTS", points.getText().toString());
+            savedInstanceState.putString("TOAST", prog1.getText().toString());
+            savedInstanceState.putInt("1", a);
+            savedInstanceState.putInt("2", b);
+            savedInstanceState.putInt("3", c);
+            savedInstanceState.putInt("4", p);
+            ;
+
+        }
+
+
 
     public void rulesPressed(View v) {
         Intent i = new Intent(this, new_activity.class);
+        i.putExtra("POINTS", p);
         startActivity(i);
     }
 
@@ -88,9 +161,7 @@ public class MainActivity {
             f = false;
             setPoints();
             points.setText("You scored: " + p);
-            p = 0;
         } else {
-            points.setText("");
             prog1.setText("");
             f = true;
 
@@ -153,7 +224,7 @@ public class MainActivity {
     public void setPoints() {
         if (a == b && b == c) {
             p += 50;
-            prog1.setText("JACKPOT!");
+            prog1.setText("JACKPOT!   - ");
             findPears();
         }
         else{
